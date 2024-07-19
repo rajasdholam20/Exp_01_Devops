@@ -12,6 +12,7 @@ def check_password():
             st.text_input("Username", key="username")
             st.text_input("Password", type="password", key="password")
             st.form_submit_button("Log in", on_click=password_entered)
+
     def password_entered():
         """Checks whether a password entered by the user is correct."""
         if st.session_state["username"] in st.secrets[
@@ -35,6 +36,7 @@ def check_password():
     if "password_correct" in st.session_state:
         st.error("😕 User not known or password incorrect")
     return False
+
 
 if not check_password():
     st.stop()
